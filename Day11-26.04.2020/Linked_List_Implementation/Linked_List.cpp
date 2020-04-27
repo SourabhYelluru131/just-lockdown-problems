@@ -193,7 +193,6 @@ public:
         }
         if(size<n)
         {
-            cout << "Yess" << endl;
             return NULL;
         }
         int ind = size-n;
