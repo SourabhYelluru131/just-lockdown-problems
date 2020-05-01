@@ -6,7 +6,9 @@ using namespace std;
 //      peek()      ->      Returns the value of the element in the top of the stack
 //      pop()       ->      Removes the topmost element of the stack
 //      display()   ->      Displays element in the stack from top to bottom
-struct StackNode
+
+
+struct StackNode        // basic structure used for creation of stacks. Similar to linked lists.
 {
     int data;
     StackNode *next;
