@@ -30,7 +30,7 @@ private:
 public:
     Linked_List()
     {
-        Node *head = NULL;
+        this->head = NULL;
         this->size = 0;
     }
     int length()
@@ -39,18 +39,12 @@ public:
     }
     bool empty()
     {
-        if(!size)
-        {
-            return true;
-        }
+        if(!size) return true;
         return false;
     }
     int value_at(int index)
     {
-        if(size<=index || head==NULL)
-        {
-            return NULL;
-        }
+        if(size<=index || head==NULL) exit(1);
         Node *current = head;
         for(int count=0;count<index;count++)
         {
@@ -68,10 +62,7 @@ public:
     }
     int pop_front()
     {
-        if(head==NULL)                      // If there is no element, head is NULL, so do nothing
-        {
-            return NULL;
-        }
+        if(head==NULL) exit(1);             // If there is no element, head is NULL, so do nothing
         int res = head->data;
         head = head->next;
         size--;
@@ -97,10 +88,7 @@ public:
     }
     int pop_back()
     {
-        if(head==NULL)
-        {
-            return NULL;
-        }
+        if(head==NULL) exit(1);
         if(size==1){
             int a = head->data;
             head=NULL;
@@ -119,18 +107,12 @@ public:
     }
     int front()
     {
-        if(head==NULL)
-        {
-            return NULL;
-        }
+        if(head==NULL) exit(1);
         return head->data;
     }
     int back()
     {
-        if(head==NULL)
-        {
-            return NULL;
-        }
+        if(head==NULL) exit(1);
         Node *current = head;
         while(current->next != NULL)
         {
@@ -164,10 +146,7 @@ public:
     }
     void erase(int index)
     {
-        if(size<=index || head==NULL)
-        {
-            return;
-        }
+        if(size<=index || head==NULL) return;
         if(index==0)
         {
             head = head->next;
@@ -187,14 +166,8 @@ public:
     }
     int value_n_from_end(int n)
     {
-        if(head==NULL)
-        {
-            return NULL;
-        }
-        if(size<n)
-        {
-            return NULL;
-        }
+        if(head==NULL) exit(1);
+        if(size<n) exit(1);
         int ind = size-n;
         Node *current = head;
         for(int i=0;i<ind;i++)
@@ -205,10 +178,7 @@ public:
     }
     void remove_value(int value)
     {
-        if(head==NULL)
-        {
-            return;
-        }
+        if(head==NULL) return;
         if(head->data==value)
         {
             head = head->next;
@@ -243,4 +213,21 @@ public:
 int main()
 {
     Linked_List list; // Instantiating an object of class Linked_List
+    cout << list.empty() << endl;
+    list.push_back(3);
+    cout << list.empty() << endl;
+    list.push_front(2);
+    list.push_back(4);
+    cout << list.pop_front() << endl;
+    cout << list.pop_back() << endl;
+    list.push_front(5);
+    list.push_back(3);
+    list.push_back(12);
+    list.push_back(9);
+    list.push_back(7);
+    list.push_front(4);
+    list.push_back(17);
+    cout << list.front() << endl;
+    cout << list.back() << endl;
+    list.print();
 }
