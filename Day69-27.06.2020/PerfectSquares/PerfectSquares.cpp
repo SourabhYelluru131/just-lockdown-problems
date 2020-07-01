@@ -1,4 +1,4 @@
-//  https://leetcode.com/problems/perfect-squares/submissions/
+//  https://leetcode.com/problems/perfect-squares/
 class Solution {
 public:
     int numSquares(int n) {
